@@ -2,7 +2,7 @@
 import cookielib
 import urllib2
 import urllib
-
+import json
 
 # 验证码登陆
 def getlogindata():
@@ -29,13 +29,17 @@ def getpama():
     return postdata
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     cookiespath = "cookie.txt"
     filename = cookiespath
     cookie = cookielib.MozillaCookieJar(filename)
-    cookie.load(cookiespath, ignore_discard=True, ignore_expires=True)
-    handler = urllib2.HTTPCookieProcessor(cookie)
-    opener = urllib2.build_opener(handler)
+    cookie.load(cookiespath, ignore_discard=True, ignore_expires=True)  #加载cookies
+    opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookie))
     response = opener.open("http://app.winbaoxian.com/planBook/calculate",getpama())
-    cookie.save(ignore_discard=True, ignore_expires=True)
+    result1 = urllib2.urlopen("http://app.winbaoxian.com/main/planbook/ajaxGet?companyId=1")
+    cookie.save(ignore_discard=True, ignore_expires=True) #保存cookies
     print response.read()
+    string = response.read()
+    mresult = json.loads(string.decode("utf-8"))
+#    mresult = json.load(mresult)
+    print type(string)
