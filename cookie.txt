@@ -1,0 +1,7 @@
+# Netscape HTTP Cookie File
+# http://curl.haxx.se/rfc/cookie_spec.html
+# This is a generated file!  Do not edit.
+
+app.winbaoxian.com	FALSE	/	FALSE		JSESSIONID	14F7D1C07DCC5B4548E23FE67345AEA0
+app.winbaoxian.com	FALSE	/	FALSE		SERVERID	40c64587d2f26f6bb62cb954d12bbc22|1452434432|1452433789
+app.winbaoxian.com	FALSE	/	FALSE	1552433788	token	ff79f6bcc8e349dabcf44fc3dab392c4
