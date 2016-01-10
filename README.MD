@@ -1,1 +1,1 @@
-##test and study python
+##test git and study python programming
