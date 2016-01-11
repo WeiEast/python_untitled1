@@ -38,8 +38,7 @@ if __name__ == "__main__":
     response = opener.open("http://app.winbaoxian.com/planBook/calculate",getpama())
     result1 = urllib2.urlopen("http://app.winbaoxian.com/main/planbook/ajaxGet?companyId=1")
     cookie.save(ignore_discard=True, ignore_expires=True) #保存cookies
-    print response.read()
-    string = response.read()
-    mresult = json.loads(string.decode("utf-8"))
-#    mresult = json.load(mresult)
-    print type(string)
+    str1 = response.read()  #只能read()一次
+    print str1
+    mresult = json.loads(str1)
+    print mresult['data']['retdesc']
