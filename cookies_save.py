@@ -8,7 +8,7 @@ import json
 def getlogindata():
     postdata = urllib.urlencode({
             'mobile':'15583581921',
-            'validateCode':'4734'
+            'validateCode':'7618'
         })
     return postdata
 
@@ -36,7 +36,8 @@ if __name__ == "__main__":
     cookie.load(cookiespath, ignore_discard=True, ignore_expires=True)  #加载cookies
     opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookie))
     response = opener.open("http://app.winbaoxian.com/planBook/calculate",getpama())
-    result1 = urllib2.urlopen("http://app.winbaoxian.com/main/planbook/ajaxGet?companyId=1")
+    #response1 = opener.open("http://app.winbaoxian.com/user/login/ajaxSave",getlogindata()) #登陆方法
+    result1 = urllib2.urlopen("http://app.winbaoxian.com/main/planbook/ajaxGet?companyId=1")  #获取所有产品
     cookie.save(ignore_discard=True, ignore_expires=True) #保存cookies
     str1 = response.read()  #只能read()一次
     print str1
