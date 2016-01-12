@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import  xdrlib ,sys
 import xlrd
+import xlwt
 
 
 def open_excel(file= 'file.xls'):
@@ -47,14 +48,26 @@ def excel_table_byname(file= 'file.xls',colnameindex=0,by_name=u'Sheet1'):
     return list
 
 
+#excel写入
+def writevalue():
+    workbook = xlwt.Workbook(encoding = 'ascii')
+    worksheet = workbook.add_sheet('My Worksheet')
+    # 先行 再列
+    worksheet.write(3, 2, label = 'Row 0, Column 0 Value')
+    workbook.save('Excel_Workbook.xls')
+    return
+
 def main():
    tables = excel_table_byindex()
    for row in tables:
-       print row
+       str_symptom = str(row).replace("u\'","\'")
+       print str_symptom.decode("unicode-escape")
 
    tables = excel_table_byname()
    for row in tables:
-       print row
+       str_symptom = str(row).replace("u\'","\'")
+       print str_symptom.decode("unicode-escape")
 
 if __name__=="__main__":
-    main()
+    writevalue()
+    #main()
