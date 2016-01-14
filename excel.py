@@ -2,6 +2,7 @@
 import  xdrlib ,sys
 import xlrd
 import xlwt
+import proplanbaen
 
 
 def open_excel(file= 'file.xls'):
@@ -49,11 +50,17 @@ def excel_table_byname(file= 'file.xls',colnameindex=0,by_name=u'Sheet1'):
 
 
 #excel写入
-def writevalue():
+def writevalue(lists):
     workbook = xlwt.Workbook(encoding = 'ascii')
     worksheet = workbook.add_sheet('My Worksheet')
+
     # 先行 再列
-    worksheet.write(3, 2, label = 'Row 0, Column 0 Value')
+    for i in range(0,len(lists)):
+        worksheet.write(i, 0, label = lists[i].mbaoe)
+        worksheet.write(i, 1, label = lists[i].mbaof)
+        worksheet.write(i, 2, label = lists[i].msex)
+        worksheet.write(i, 3, label = lists[i].mage)
+        worksheet.write(i, 4, label = lists[i].myears)
     workbook.save('Excel_Workbook.xls')
     return
 
@@ -69,5 +76,9 @@ def main():
        print str_symptom.decode("unicode-escape")
 
 if __name__=="__main__":
-    writevalue()
-    #main()
+    #writevalue()
+    # main()
+    lists = []
+    obj = proplanbaen.ProplanBean(11,11,11,1,1)
+    lists.append(obj)
+    writevalue(lists)
