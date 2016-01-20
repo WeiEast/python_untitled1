@@ -11,7 +11,7 @@ import time
 def getlogindata():
     postdata = urllib.urlencode({
             'mobile':'15583581921',
-            'validateCode':'3965'
+            'validateCode':'7152'
         })
     return postdata
 
@@ -34,12 +34,13 @@ def getpama():
 
 #平安 尊享人生
 def getp(msex,mage,myears):
-    data = urllib.urlencode({'jsonParameters':'{"baotype":1155,"insuranceTypeId":193,"hasSocial":true,"sex":'+str(msex)+',"age":'+str(mage)+',"isApply":false,"applySex":1,"applyAge":18,"idea":-1,"csex":1,"additionalShow":{"zhuyuanRJT":true,"zhuyuanYl":true,"yiwaiYl":true,"yiwaiSh_2":true},"years":'+str(myears)+',"baoe1155":10000,"callMethod":1}',
-                             "baotype":1155,"insuranceTypeId":193,"hasSocial":"true","sex":msex,
-                             "age":mage,"isApply":"false","applySex":1,"applyAge":18,"idea":-1,"csex":1,
-                             "additionalShow":{"zhuyuanRJT":"true","zhuyuanYl":"true","yiwaiYl":"true","yiwaiSh_2":"true"},
-                             "years":myears,"baoe1155":10000,"callMethod":1
-                             })
+    data = urllib.urlencode({
+        "age":0,"baoe493":10000,"baoeToBaof":"true","baotype":493,"callMethod":1,"csex":1,
+        "hasSocial":"true","idea":-1,"insuranceTypeId":203,"level":2,"sex":1,"years":3,
+        "jsonParameters":
+         '{"baotype":493,"insuranceTypeId":203,"hasSocial":true,"baoeToBaof":true,"sex":1,"age":0,"idea":-1,"csex":1,"level":2,"years":3,"baoe493":10000,"callMethod":1}'
+        })
+
     return data
 
 
@@ -68,7 +69,7 @@ if __name__ == "__main__":
                 print str1
                 mresult = json.loads(str1)
                 if str(mresult['data']['retcode']) == '0':
-                    obj = proplanbaen.ProplanBean(sex,i,years,mresult['data']['outNum']['1155']['baoe'],mresult['data']['outNum']['1155']['baof'])
+                    obj = proplanbaen.ProplanBean(sex,i,years,mresult['data']['outNum']['493']['baoe'],mresult['data']['outNum']['493']['baof'])
                     lists.append(obj)
                 time.sleep(0.5)
     excel.writevalue(lists)
@@ -76,10 +77,18 @@ if __name__ == "__main__":
 
     # str1 = postdata(opener,"http://app.winbaoxian.com/planBook/calculate",getp(1,19,10),cookie)
     #response = opener.open("http://app.winbaoxian.com/planBook/calculate",getp())
+
+
+    ###登录
     # response1 = opener.open("http://app.winbaoxian.com/user/login/ajaxSave",getlogindata()) #登陆方法
     # print response1.read()
-    #result1 = urllib2.urlopen("http://app.winbaoxian.com/main/planbook/ajaxGet?companyId=1")  #获取所有产品
+
+
+
     cookie.save(ignore_discard=True, ignore_expires=True) #保存cookies
+
+    #result1 = urllib2.urlopen("http://app.winbaoxian.com/main/planbook/ajaxGet?companyId=1")  #获取所有产品
+
     #str1 = response.read()  #只能read()一次
 
     # print str1

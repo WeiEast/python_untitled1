@@ -1,0 +1,10 @@
+//尊享人生
+urllib.urlencode({'jsonParameters':'{"baotype":493,"insuranceTypeId":203,"hasSocial":true,"sex":'+str(msex)+',"age":'+str(mage)+',"isApply":false,"applySex":1,"applyAge":18,"idea":-1,"csex":1,"additionalShow":{"zhuyuanRJT":true,"zhuyuanYl":true,"yiwaiYl":true,"yiwaiSh_2":true},"years":'+str(myears)+',"baoe1155":10000,"callMethod":1}',
+                             "baotype":1155,"insuranceTypeId":193,"hasSocial":"true","sex":msex,
+                             "age":mage,"isApply":"false","applySex":1,"applyAge":18,"idea":-1,"csex":1,
+                             "additionalShow":{"zhuyuanRJT":"true","zhuyuanYl":"true","yiwaiYl":"true","yiwaiSh_2":"true"},
+                             "years":myears,"baoe1155":10000,"callMethod":1
+                             })
+
+
+//
