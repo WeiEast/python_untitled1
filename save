@@ -7,4 +7,32 @@ urllib.urlencode({'jsonParameters':'{"baotype":493,"insuranceTypeId":203,"hasSoc
                              })
 
 
-//
+// 畅享世家
+urllib.urlencode({
+        "age":str(mage),"baoe493":10000,"baoeToBaof":"true","baotype":493,"callMethod":1,"csex":1,
+        "hasSocial":"true","idea":-1,"insuranceTypeId":203,"level":2,"sex":str(msex),"years":str(myears),
+        "jsonParameters":
+         '{"baotype":493,"insuranceTypeId":203,"hasSocial":true,"baoeToBaof":true,"sex":'+str(msex)+',"age":'+str(mage)+',"idea":-1,"csex":1,"level":2,"years":'+str(myears)+',"baoe493":10000,"callMethod":1}'
+        })
+
+//新华 健康无忧c
+urllib.urlencode({"jsonParameters":{"baotype":535,"insuranceTypeId":179,"sex":str(msex),"age":str(mage),"insurantMinAge_w":18,"insurantMaxAge_w":60,"isApply":"true","applySex":1,"applyAge":18,"idea":-1,"csex":1,"additionalShow":{"yiwaiSh":"true","yiwaiYl":"true","zhuyuanFy":"true","zhuyuanBt":"true","zhongdaJb":"false"},"years":str(myears),"baoe535":10000,"callMethod":1},
+        "baotype":535,"insuranceTypeId":179,"sex":str(msex),"age":str(mage),"insurantMinAge_w":18,"insurantMaxAge_w":60,
+         "isApply":'true',"applySex":1,"applyAge":18,"idea":-1,"csex":1,"additionalShow[yiwaiSh]":"true",
+          "additionalShow[yiwaiYl]":"true","additionalShow[zhuyuanFy]":"true","additionalShow[zhuyuanBt]":"true","additionalShow[zhongdaJb]":"false",
+          "years":str(myears),"baoe535":10000,"callMethod":1,
+        })
+//新华金彩一生白金
+urllib.urlencode({"jsonParameters":'{"baotype":188,"insuranceTypeId":183,"sex":'+str(msex)+',"age":'+str(mage)+',"isApply":true,"applySex":1,"applyAge":18,"idea":-1,"csex":1,"additionalShow":{"yiwaiSh":true,"yiwaiYl":true,"zhuyuanFy":true,"zhuyuanBt":true,"zhongdaJb":true},"years":'+str(myears)+',"baoe188":10000,"callMethod":1}',
+                             "baotype":"188","insuranceTypeId":"183","sex":str(msex),"age":str(mage),"isApply":"true","applySex":"1","applyAge":"18","idea":"-1","csex":"1",
+                             "additionalShow[yiwaiSh]":"true","additionalShow[yiwaiYl]":"true","additionalShow[zhuyuanFy]":"true"
+                            ,"additionalShow[zhuyuanBt]":"true","additionalShow[zhongdaJb]":"true","years":str(myears),"baoe188":"10000","callMethod":1
+                        })
+
+//泰康 鑫享人生
+urllib.urlencode({
+        "jsonParameters":{"baotype":5031,"insuranceTypeId":74,"hasSocial":"true","sex":str(msex),"age":str(mage),"isApply":"false","applySex":1,"applyAge":18,"idea":-1,"csex":1,"additionalShow":{"zhuyuanRJT":"true","zhuyuanYl":"true","yiwaiYl":"true","yiwaiSh_2":"true"},"level":2,"years":str(myears),"account":0,"baof5031":10000,"callMethod":1},
+        "baotype":5031,"insuranceTypeId":74,"hasSocial":"true","sex":str(msex),"age":str(mage),"isApply":"false","applySex":1,"applyAge":18,"idea":-1,"csex":1,
+        "additionalShow[zhuyuanRJT]":"true","additionalShow[zhuyuanYl]":"true","additionalShow[yiwaiYl]":"true","additionalShow[yiwaiSh_2]":"true",
+        "level":2,"years":str(myears),"account":0,"baof5031":10000,"callMethod":1
+    })

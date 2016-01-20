@@ -9,6 +9,7 @@ class ProplanBean :
     myears = 0
     mbaoe = -1
     mbaof = -1
+    duration = -1
 
     def __init__(self, sex, age,years,baoe,baof):
         self.msex = sex
