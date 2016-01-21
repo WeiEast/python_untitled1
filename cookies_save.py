@@ -105,7 +105,7 @@ def getvalue4():
                     print str1
                     mresult = json.loads(str1)
                     if str(mresult['data']['retcode']) == '0':
-                        obj = proplanbaen.ProplanBean(sex,i,years,mresult['data']['outNum']['034']['baoe'],mresult['data']['outNum']['034']['baof'])
+                        obj = proplanbaen.ProplanBean(sex,i,years,mresult['data']['outNum']['034']['baoe'],mresult['data']['outNum']['034']['baof'],md)
                         lists.append(obj)
                     time.sleep(0.5)
     excel.writevalue(lists)

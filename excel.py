@@ -53,7 +53,9 @@ def excel_table_byname(file= 'file.xls',colnameindex=0,by_name=u'Sheet1'):
 def writevalue(lists):
     workbook = xlwt.Workbook(encoding = 'ascii')
     worksheet = workbook.add_sheet('My Worksheet')
-
+    abcd = "x"
+    sex = "y"
+    years = "z"
     # 先行 再列
     for i in range(0,len(lists)):
         worksheet.write(i, 0, label = lists[i].mbaoe)
@@ -61,8 +63,35 @@ def writevalue(lists):
         worksheet.write(i, 2, label = lists[i].msex)
         worksheet.write(i, 3, label = lists[i].mage)
         worksheet.write(i, 4, label = lists[i].myears)
+        worksheet.write(i, 5, label = lists[i].duration)
+        if lists[i].duration==60:
+            abcd = 'a'
+        elif lists[i].duration==65:
+            abcd = 'b'
+        elif lists[i].duration==70:
+            abcd = 'c'
+
+
+        if lists[i].msex==1:
+            sex = 'f'
+        elif lists[i].msex==2:
+            sex = 'g'
+
+        if lists[i].myears==3:
+            years = 'i'
+        elif lists[i].myears==5:
+            years = 'j'
+        elif lists[i].myears==10:
+            years = 'k'
+        elif lists[i].myears==20:
+            years = 'l'
+
+
+        worksheet.write(i, 6, label = abcd+sex+'h'+years)
+
     workbook.save('Excel_Workbook.xls')
     return
+
 
 def main():
    tables = excel_table_byindex()
@@ -79,6 +108,8 @@ if __name__=="__main__":
     #writevalue()
     # main()
     lists = []
-    obj = proplanbaen.ProplanBean(11,11,11,1,1)
+    obj = proplanbaen.ProplanBean(1,11,3,10000,299,60)
+    lists.append(obj)
+    obj = proplanbaen.ProplanBean(2,12,10,10000,189,70)
     lists.append(obj)
     writevalue(lists)
