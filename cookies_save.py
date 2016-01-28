@@ -11,7 +11,7 @@ import time
 def getlogindata():
     postdata = urllib.urlencode({
             'mobile':'15583581921',
-            'validateCode':'2067'#验证码
+            'validateCode':'3643'#验证码
         })
     return postdata
 
@@ -42,11 +42,11 @@ def getpama():
 #保险提交参数3个参数
 def getp(msex,mage,myears):
     data = urllib.urlencode({
-        "jsonParameters":{"baotype":5031,"insuranceTypeId":74,"hasSocial":"true","sex":str(msex),"age":str(mage),"isApply":"false","applySex":1,"applyAge":18,"idea":-1,"csex":1,"additionalShow":{"zhuyuanRJT":"true","zhuyuanYl":"true","yiwaiYl":"true","yiwaiSh_2":"true"},"level":2,"years":str(myears),"account":0,"baof5031":10000,"callMethod":1},
-        "baotype":5031,"insuranceTypeId":74,"hasSocial":"true","sex":str(msex),"age":str(mage),"isApply":"false","applySex":1,"applyAge":18,"idea":-1,"csex":1,
-        "additionalShow[zhuyuanRJT]":"true","additionalShow[zhuyuanYl]":"true","additionalShow[yiwaiYl]":"true","additionalShow[yiwaiSh_2]":"true",
-        "level":2,"years":str(myears),"account":0,"baof5031":10000,"callMethod":1
-    })
+        "age":str(mage),"baoe493":10000,"baoeToBaof":"true","baotype":493,"callMethod":1,"csex":1,
+        "hasSocial":"true","idea":-1,"insuranceTypeId":203,"level":2,"sex":str(msex),"years":str(myears),
+        "jsonParameters":
+         '{"baotype":493,"insuranceTypeId":203,"hasSocial":true,"baoeToBaof":true,"sex":'+str(msex)+',"age":'+str(mage)+',"idea":-1,"csex":1,"level":2,"years":'+str(myears)+',"baoe493":10000,"callMethod":1}'
+        })
     return data
 
 
@@ -71,17 +71,18 @@ def postdata(opener,urlstr,pama,cookie):
 def getvalue():
     pamasex = [1,2]
     pamaminage = 0
-    pamaage = 59
-    pamayears = [1,3,5,10,15,20]
+    pamaage = 71
+    pamayears = [1,3,5,10]
     lists = []
     for sex in pamasex:
         for years in pamayears:
             for i in range(pamaminage,pamaage):
+                print sex,years,i
                 str1 = postdata(opener,"http://app.winbaoxian.com/planBook/calculate",getp(sex,i,years),cookie)
                 print str1
                 mresult = json.loads(str1)
                 if str(mresult['data']['retcode']) == '0':
-                    obj = proplanbaen.ProplanBean(sex,i,years,mresult['data']['outNum']['5031']['baoe'],mresult['data']['outNum']['5031']['baof'])
+                    obj = proplanbaen.ProplanBean(sex,i,years,mresult['data']['outNum']['493']['baoe'],mresult['data']['outNum']['493']['baof'])
                     lists.append(obj)
                 time.sleep(0.5)
     excel.writevalue(lists)
@@ -119,8 +120,8 @@ if __name__ == "__main__":
     cookie.load(cookiespath, ignore_discard=True, ignore_expires=True)  #加载cookies
     opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookie))
     # 登录
-    # login(opener)
-    getvalue4()
+    #login(opener)
+    getvalue()
 
     cookie.save(ignore_discard=True, ignore_expires=True) #保存cookies
 
