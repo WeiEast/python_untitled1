@@ -11,7 +11,7 @@ import time
 def getlogindata():
     postdata = urllib.urlencode({
             'mobile':'15583581921',
-            'validateCode':'3643'#验证码
+            'validateCode':'1481'#验证码
         })
     return postdata
 
@@ -42,11 +42,13 @@ def getpama():
 #保险提交参数3个参数
 def getp(msex,mage,myears):
     data = urllib.urlencode({
-        "age":str(mage),"baoe493":10000,"baoeToBaof":"true","baotype":493,"callMethod":1,"csex":1,
-        "hasSocial":"true","idea":-1,"insuranceTypeId":203,"level":2,"sex":str(msex),"years":str(myears),
-        "jsonParameters":
-         '{"baotype":493,"insuranceTypeId":203,"hasSocial":true,"baoeToBaof":true,"sex":'+str(msex)+',"age":'+str(mage)+',"idea":-1,"csex":1,"level":2,"years":'+str(myears)+',"baoe493":10000,"callMethod":1}'
-        })
+        "jsonParameters":{"baotype":690,"insuranceTypeId":202,"sex":str(msex),"age":str(mage),"isApply":"false","applySex":1,"applyAge":18,"idea":-1,
+                          "csex":1,"additionalShow":{"yiwaiSh":"true","yiwaiYl":"true","zhuyuanFy":"true","zhuyuanBt":"true","zhongdaJb":"true"},
+                          "years":10,"baoe690":10000,"callMethod":1},
+        "baotype":690,"insuranceTypeId":202,"sex":1,"age":16,"isApply":"false","applySex":1,"applyAge":18,"idea":-1,"csex":1,
+        "additionalShow[yiwaiSh]":"true","additionalShow[yiwaiYl]":"true",
+        "additionalShow[zhuyuanFy]":"true","additionalShow[zhuyuanBt]":"true",
+        "additionalShow[zhongdaJb]":"true","years":10,"baoe690":10000,"callMethod":1})
     return data
 
 
@@ -71,7 +73,7 @@ def postdata(opener,urlstr,pama,cookie):
 def getvalue():
     pamasex = [1,2]
     pamaminage = 0
-    pamaage = 71
+    pamaage = 66
     pamayears = [1,3,5,10]
     lists = []
     for sex in pamasex:
@@ -82,7 +84,7 @@ def getvalue():
                 print str1
                 mresult = json.loads(str1)
                 if str(mresult['data']['retcode']) == '0':
-                    obj = proplanbaen.ProplanBean(sex,i,years,mresult['data']['outNum']['493']['baoe'],mresult['data']['outNum']['493']['baof'])
+                    obj = proplanbaen.ProplanBean(sex,i,years,mresult['data']['outNum']['690']['baoe'],mresult['data']['outNum']['690']['baof'])
                     lists.append(obj)
                 time.sleep(0.5)
     excel.writevalue(lists)
