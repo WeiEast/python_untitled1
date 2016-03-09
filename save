@@ -38,23 +38,13 @@ urllib.urlencode({
     })
 
 
-jsonParameters={"baotype":799,"insuranceTypeId":181,"sex":"2","age":18,"insurantMinAge_w":0,"insurantMaxAge_w":60,"isApply":true,"applySex":1,"applyAge":18,"idea":-1,"csex":1,"additionalShow":{"yiwaiSh":true,"yiwaiYl":true,"zhuyuanFy":true,"zhuyuanBt":true,"zhongdaJb":false},"years":30,"baoe799":10000,"callMethod":1}
-baotype=799
-insuranceTypeId=181
-sex=2
-age=18
-insurantMinAge_w=0
-insurantMaxAge_w=60
-isApply=true
-applySex=1
-applyAge=18
+insuranceTypeId=169
+sex=1
+age=19
+years=10
+duration=30
+baoe=50000
+baofei=7725.00
 idea=-1
+cname
 csex=1
-additionalShow[yiwaiSh]=true
-additionalShow[yiwaiYl]=true
-additionalShow[zhuyuanFy]=true
-additionalShow[zhuyuanBt]=true
-additionalShow[zhongdaJb]=false
-years=30
-baoe799=10000
-callMethod=1

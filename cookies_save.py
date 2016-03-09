@@ -67,10 +67,9 @@ def getp(msex,mage,myears):
 #保险提交参数4个参数
 def getp4(msex,mage,myears,mduration):
     data = urllib.urlencode({
-        "jsonParameters":{"baotype":28,"insuranceTypeId":218,"hasSocial":"true","sex":str(msex),"age":str(mage),"isApply":"false","showApply":"true","applySex":1,"applyAge":20,"idea":-1,"csex":1,"baoeToBaof":"false","cover":3,"takePopupArr":[],"additionalShow":{"laolaiF":"true","shaonianZ":"true"},"years":str(myears),"duration":str(mduration),"baof034":10000,"callMethod":1},
-        "baotype":28,"insuranceTypeId":218,"hasSocial":"true","sex":str(msex),"age":str(mage),"isApply":"false","showApply":"true","applySex":1,"applyAge":20,"idea":-1,"csex":1,
-        "baoeToBaof":"false","cover":3,"additionalShow[laolaiF]":"true","additionalShow[shaonianZ]":"true","years":str(myears),"duration":str(mduration),"baof034":10000,"callMethod":1
-
+        "insuranceTypeId":169,
+        "se":msex,"age":mage,"years":myears,"duration":mduration,
+        "baoe":50000,"baofei":"","idea":-1,"cname":"","csex":1,
     })
     return data
 
@@ -106,10 +105,10 @@ def getvalue():
 
 def getvalue4():
     pamasex = [1,2]
-    pamaminage = 0
-    pamaage = 60
-    pamayears = [3,5,10,20]
-    duration = [60,65,70]
+    pamaminage = 18
+    pamaage = 61
+    pamayears = [1,5,10]
+    duration = [20,30]
     lists = []
     for sex in pamasex:
         for years in pamayears:
@@ -120,7 +119,8 @@ def getvalue4():
                     print str1
                     mresult = json.loads(str1)
                     if str(mresult['data']['retcode']) == '0':
-                        obj = proplanbaen.ProplanBean(sex,i,years,mresult['data']['outNum']['034']['baoe'],mresult['data']['outNum']['034']['baof'],md)
+                        #obj = proplanbaen.ProplanBean(sex,i,years,mresult['data']['outNum']['169']['baoe'],mresult['data']['outNum']['169']['baof'],md)
+                        obj = proplanbaen.ProplanBean(sex,i,years,"50000",mresult['data']['outNum']['main'],md)
                         lists.append(obj)
                     time.sleep(0.5)
     excel.writevalue(lists)
@@ -135,7 +135,7 @@ if __name__ == "__main__":
     opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookie))
     # 登录
     #login(opener)
-    getvalue()
+    getvalue4()
 
     cookie.save(ignore_discard=True, ignore_expires=True) #保存cookies
 

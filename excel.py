@@ -65,7 +65,7 @@ def writevalue(lists):
         worksheet.write(i, 2, label = lists[i].msex)
         worksheet.write(i, 3, label = lists[i].mage)
         worksheet.write(i, 4, label = lists[i].myears)
-        # worksheet.write(i, 5, label = lists[i].duration)
+        worksheet.write(i, 5, label = lists[i].duration)
         # if lists[i].duration==60:
         #     abcd = 'a'
         # elif lists[i].duration==65:
@@ -87,7 +87,7 @@ def writevalue(lists):
         #elif lists[i].myears == scyears[3]:
         #    years = scartas[3]
 
-        worksheet.write(i, 6, label=abcd+sex+'h'+years)
+        #worksheet.write(i, 6, label=abcd+sex+'h'+years)
 
     workbook.save('Excel_Workbook.xls')
     return
