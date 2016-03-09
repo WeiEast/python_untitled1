@@ -31,6 +31,7 @@ urllib.urlencode({"jsonParameters":'{"baotype":188,"insuranceTypeId":183,"sex":'
 
 //泰康 鑫享人生
 urllib.urlencode({
+
         "jsonParameters":{"baotype":5031,"insuranceTypeId":74,"hasSocial":"true","sex":str(msex),"age":str(mage),"isApply":"false","applySex":1,"applyAge":18,"idea":-1,"csex":1,"additionalShow":{"zhuyuanRJT":"true","zhuyuanYl":"true","yiwaiYl":"true","yiwaiSh_2":"true"},"level":2,"years":str(myears),"account":0,"baof5031":10000,"callMethod":1},
         "baotype":5031,"insuranceTypeId":74,"hasSocial":"true","sex":str(msex),"age":str(mage),"isApply":"false","applySex":1,"applyAge":18,"idea":-1,"csex":1,
         "additionalShow[zhuyuanRJT]":"true","additionalShow[zhuyuanYl]":"true","additionalShow[yiwaiYl]":"true","additionalShow[yiwaiSh_2]":"true",
