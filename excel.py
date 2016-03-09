@@ -73,19 +73,19 @@ def writevalue(lists):
         # elif lists[i].duration==70:
         #     abcd = 'c'
 
-        if lists[i].msex==1:
-            sex = 'f'
-        elif lists[i].msex==2:
-            sex = 'g'
-
-        if lists[i].myears == scyears[0]:
-            years = scartas[0]
-        elif lists[i].myears == scyears[1]:
-            years = scartas[1]
-        elif lists[i].myears == scyears[2]:
-            years = scartas[2]
-        elif lists[i].myears == scyears[3]:
-            years = scartas[3]
+        #if lists[i].msex==1:
+        #    sex = 'f'
+        #elif lists[i].msex==2:
+        #    sex = 'g'
+#
+        #if lists[i].myears == scyears[0]:
+        #    years = scartas[0]
+        #elif lists[i].myears == scyears[1]:
+        #    years = scartas[1]
+        #elif lists[i].myears == scyears[2]:
+        #    years = scartas[2]
+        #elif lists[i].myears == scyears[3]:
+        #    years = scartas[3]
 
         worksheet.write(i, 6, label=abcd+sex+'h'+years)
 

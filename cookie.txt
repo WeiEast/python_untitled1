@@ -2,6 +2,6 @@
 # http://curl.haxx.se/rfc/cookie_spec.html
 # This is a generated file!  Do not edit.
 
-app.winbaoxian.com	FALSE	/	FALSE		JSESSIONID	007E7EB07D97928BE7FF49B4407A8C4C
-app.winbaoxian.com	FALSE	/	FALSE		SERVERID	307b5ba3fabc79bce8a45cce0004b8a9|1457449899|1457449899
+app.winbaoxian.com	FALSE	/	FALSE		JSESSIONID	71144C1E143668A21726C8757C797CD3
+app.winbaoxian.com	FALSE	/	FALSE		SERVERID	0566107f0b6ad539dab2d166a3543cea|1457491508|1457491174
 app.winbaoxian.com	FALSE	/	FALSE	1557449898	token	fb873eba7a464fc6b46aef09131b323b

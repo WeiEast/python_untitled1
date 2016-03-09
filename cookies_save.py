@@ -44,11 +44,11 @@ def getp(msex,mage,myears):
     data = urllib.urlencode({
         "jsonParameters":{"baotype":690,"insuranceTypeId":202,"sex":str(msex),"age":str(mage),"isApply":"false","applySex":1,"applyAge":18,"idea":-1,
                           "csex":1,"additionalShow":{"yiwaiSh":"true","yiwaiYl":"true","zhuyuanFy":"true","zhuyuanBt":"true","zhongdaJb":"true"},
-                          "years":10,"baoe690":10000,"callMethod":1},
-        "baotype":690,"insuranceTypeId":202,"sex":1,"age":16,"isApply":"false","applySex":1,"applyAge":18,"idea":-1,"csex":1,
+                          "years":myears,"baoe690":10000,"callMethod":1},
+        "baotype":690,"insuranceTypeId":202,"sex":msex,"age":mage,"isApply":"false","applySex":1,"applyAge":18,"idea":-1,"csex":1,
         "additionalShow[yiwaiSh]":"true","additionalShow[yiwaiYl]":"true",
         "additionalShow[zhuyuanFy]":"true","additionalShow[zhuyuanBt]":"true",
-        "additionalShow[zhongdaJb]":"true","years":10,"baoe690":10000,"callMethod":1})
+        "additionalShow[zhongdaJb]":"true","years":myears,"baoe690":10000,"callMethod":1})
     return data
 
 
