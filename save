@@ -38,12 +38,14 @@ urllib.urlencode({
     })
 
 
-jsonParameters={"baotype":690,"insuranceTypeId":202,"sex":1,"age":16,"isApply":false,"applySex":1,"applyAge":18,"idea":-1,"csex":1,"additionalShow":{"yiwaiSh":true,"yiwaiYl":true,"zhuyuanFy":true,"zhuyuanBt":true,"zhongdaJb":true},"years":10,"baoe690":10000,"callMethod":1}
-baotype=690
-insuranceTypeId=202
-sex=1
-age=16
-isApply=false
+jsonParameters={"baotype":799,"insuranceTypeId":181,"sex":"2","age":18,"insurantMinAge_w":0,"insurantMaxAge_w":60,"isApply":true,"applySex":1,"applyAge":18,"idea":-1,"csex":1,"additionalShow":{"yiwaiSh":true,"yiwaiYl":true,"zhuyuanFy":true,"zhuyuanBt":true,"zhongdaJb":false},"years":30,"baoe799":10000,"callMethod":1}
+baotype=799
+insuranceTypeId=181
+sex=2
+age=18
+insurantMinAge_w=0
+insurantMaxAge_w=60
+isApply=true
 applySex=1
 applyAge=18
 idea=-1
@@ -52,7 +54,7 @@ additionalShow[yiwaiSh]=true
 additionalShow[yiwaiYl]=true
 additionalShow[zhuyuanFy]=true
 additionalShow[zhuyuanBt]=true
-additionalShow[zhongdaJb]=true
-years=10
-baoe690=10000
+additionalShow[zhongdaJb]=false
+years=30
+baoe799=10000
 callMethod=1

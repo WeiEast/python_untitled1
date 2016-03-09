@@ -42,13 +42,25 @@ def getpama():
 #保险提交参数3个参数
 def getp(msex,mage,myears):
     data = urllib.urlencode({
-        "jsonParameters":{"baotype":690,"insuranceTypeId":202,"sex":str(msex),"age":str(mage),"isApply":"false","applySex":1,"applyAge":18,"idea":-1,
+        "jsonParameters":{"baotype":799,"insuranceTypeId":181,"sex":str(msex),"age":str(mage),"isApply":"false","applySex":1,"applyAge":18,"idea":-1,
                           "csex":1,"additionalShow":{"yiwaiSh":"true","yiwaiYl":"true","zhuyuanFy":"true","zhuyuanBt":"true","zhongdaJb":"true"},
                           "years":myears,"baoe690":10000,"callMethod":1},
         "baotype":690,"insuranceTypeId":202,"sex":msex,"age":mage,"isApply":"false","applySex":1,"applyAge":18,"idea":-1,"csex":1,
         "additionalShow[yiwaiSh]":"true","additionalShow[yiwaiYl]":"true",
         "additionalShow[zhuyuanFy]":"true","additionalShow[zhuyuanBt]":"true",
         "additionalShow[zhongdaJb]":"true","years":myears,"baoe690":10000,"callMethod":1})
+
+    data = urllib.urlencode({
+        "jsonParameters":{"baotype":799,"insuranceTypeId":181,"sex":msex,"age":mage,"insurantMinAge_w":0,"insurantMaxAge_w":60,
+                          "isApply":"true","applySex":1,"applyAge":18,"idea":-1,"csex":1,"additionalShow":{"yiwaiSh":"true",
+                          "yiwaiYl":"true","zhuyuanFy":"true","zhuyuanBt":"true","zhongdaJb":"false"},"years":myears,"baoe799":10000,
+                          "callMethod":1},
+        "baotype":799,"insuranceTypeId":181,"sex":msex,
+        "age":mage,"insurantMinAge_w":0,"insurantMaxAge_w":60,"isApply":"true","applySex":1,"applyAge":18,"idea":-1,
+        "csex":1,"additionalShow[yiwaiSh]":"true","additionalShow[yiwaiYl]":"true","additionalShow[zhuyuanFy]":"true",
+        "additionalShow[zhuyuanBt]":"true","additionalShow[zhongdaJb]":"false","years":myears,"baoe799":10000,"callMethod":1,
+    })
+
     return data
 
 
@@ -73,8 +85,8 @@ def postdata(opener,urlstr,pama,cookie):
 def getvalue():
     pamasex = [1,2]
     pamaminage = 0
-    pamaage = 66
-    pamayears = [1,3,5,10]
+    pamaage = 61
+    pamayears = [1,5,10,20,30]
     lists = []
     for sex in pamasex:
         for years in pamayears:
@@ -84,7 +96,7 @@ def getvalue():
                 print str1
                 mresult = json.loads(str1)
                 if str(mresult['data']['retcode']) == '0':
-                    obj = proplanbaen.ProplanBean(sex,i,years,mresult['data']['outNum']['690']['baoe'],mresult['data']['outNum']['690']['baof'])
+                    obj = proplanbaen.ProplanBean(sex,i,years,mresult['data']['outNum']['799']['baoe'],mresult['data']['outNum']['799']['baof'])
                     lists.append(obj)
                 time.sleep(0.5)
     excel.writevalue(lists)
