@@ -42,15 +42,6 @@ def getpama():
 #保险提交参数3个参数
 def getp(msex,mage,myears):
     data = urllib.urlencode({
-        "jsonParameters":{"baotype":799,"insuranceTypeId":181,"sex":str(msex),"age":str(mage),"isApply":"false","applySex":1,"applyAge":18,"idea":-1,
-                          "csex":1,"additionalShow":{"yiwaiSh":"true","yiwaiYl":"true","zhuyuanFy":"true","zhuyuanBt":"true","zhongdaJb":"true"},
-                          "years":myears,"baoe690":10000,"callMethod":1},
-        "baotype":690,"insuranceTypeId":202,"sex":msex,"age":mage,"isApply":"false","applySex":1,"applyAge":18,"idea":-1,"csex":1,
-        "additionalShow[yiwaiSh]":"true","additionalShow[yiwaiYl]":"true",
-        "additionalShow[zhuyuanFy]":"true","additionalShow[zhuyuanBt]":"true",
-        "additionalShow[zhongdaJb]":"true","years":myears,"baoe690":10000,"callMethod":1})
-
-    data = urllib.urlencode({
         "jsonParameters":{"baotype":799,"insuranceTypeId":181,"sex":msex,"age":mage,"insurantMinAge_w":0,"insurantMaxAge_w":60,
                           "isApply":"true","applySex":1,"applyAge":18,"idea":-1,"csex":1,"additionalShow":{"yiwaiSh":"true",
                           "yiwaiYl":"true","zhuyuanFy":"true","zhuyuanBt":"true","zhongdaJb":"false"},"years":myears,"baoe799":10000,
@@ -67,9 +58,18 @@ def getp(msex,mage,myears):
 #保险提交参数4个参数
 def getp4(msex,mage,myears,mduration):
     data = urllib.urlencode({
-        "insuranceTypeId":169,
-        "se":msex,"age":mage,"years":myears,"duration":mduration,
-        "baoe":50000,"baofei":"","idea":-1,"cname":"","csex":1,
+        "jsonParameters":{"baotype":411,"insuranceTypeId":184,"sex":msex,"age":mage,"insurantMinAge_w":18,
+                          "insurantMaxAge_w":60,"isApply":"truee","applySex":1,"applyAge":18,"idea":-1,"csex":1,
+                          "additionalShow":{"yiwaiSh":"truee","yiwaiYl":"truee","zhuyuanFy":"truee","zhuyuanBt":"truee","zhongdaJb":"false"},
+                          "years":myears,"duration":mduration,"baoe411":10000,"callMethod":1},
+        "baotype":411,
+        "insuranceTypeId":184,
+        "insurantMinAge_w":18,
+        "insurantMaxAge_w":60,
+        "isApply":"true","applySe":1,"applyAge":18,"idea":-1,"csex":1,"additionalShow[yiwaiSh]":"true",
+        "additionalShow[yiwaiYl]":"true","additionalShow[zhuyuanFy]":"true","additionalShow[zhuyuanBt]":"true","additionalShow[zhongdaJb]":"false",
+        "sex":msex,"age":mage,"years":myears,"duration":mduration,
+        "baoe411":10000,"callMethod":1,
     })
     return data
 
@@ -107,8 +107,8 @@ def getvalue4():
     pamasex = [1,2]
     pamaminage = 18
     pamaage = 61
-    pamayears = [1,5,10]
-    duration = [20,30]
+    pamayears = [5,10,20]
+    duration = [30,70,80]
     lists = []
     for sex in pamasex:
         for years in pamayears:
@@ -119,8 +119,7 @@ def getvalue4():
                     print str1
                     mresult = json.loads(str1)
                     if str(mresult['data']['retcode']) == '0':
-                        #obj = proplanbaen.ProplanBean(sex,i,years,mresult['data']['outNum']['169']['baoe'],mresult['data']['outNum']['169']['baof'],md)
-                        obj = proplanbaen.ProplanBean(sex,i,years,"50000",mresult['data']['outNum']['main'],md)
+                        obj = proplanbaen.ProplanBean(sex,i,years,mresult['data']['outNum']['411']['baoe'],mresult['data']['outNum']['411']['baof'],md)
                         lists.append(obj)
                     time.sleep(0.5)
     excel.writevalue(lists)
