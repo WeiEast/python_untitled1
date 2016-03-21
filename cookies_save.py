@@ -108,7 +108,7 @@ def getvalue4():
     pamaminage = 18
     pamaage = 61
     pamayears = [5,10,20]
-    duration = [30,70,80]
+    duration = [20,30,70,80]
     lists = []
     for sex in pamasex:
         for years in pamayears:
