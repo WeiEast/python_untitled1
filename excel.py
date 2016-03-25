@@ -60,12 +60,14 @@ def writevalue(lists):
     years = "z"
     # 先行 再列
     for i in range(0,len(lists)):
-        worksheet.write(i, 0, label = lists[i].mbaoe)
-        worksheet.write(i, 1, label = lists[i].mbaof)
-        worksheet.write(i, 2, label = lists[i].msex)
-        worksheet.write(i, 3, label = lists[i].mage)
-        worksheet.write(i, 4, label = lists[i].myears)
-        worksheet.write(i, 5, label = lists[i].duration)
+        for j in range(0,len(lists[i])):
+            worksheet.write(i, j, lists[i][j])
+
+        # worksheet.write(i, 1, label = lists[i].mbaof)
+        # worksheet.write(i, 2, label = lists[i].msex)
+        # worksheet.write(i, 3, label = lists[i].mage)
+        # worksheet.write(i, 4, label = lists[i].myears)
+        # worksheet.write(i, 5, label = lists[i].duration)
         # if lists[i].duration==60:
         #     abcd = 'a'
         # elif lists[i].duration==65:

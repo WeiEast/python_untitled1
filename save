@@ -40,15 +40,26 @@ urllib.urlencode({
 
 
 
-
-insuranceTypeId=162
-sex=2
+jsonParameters={"baotype":1118,"insuranceTypeId":190,"sex":1,"age":18,"isApply":false,"applySex":1,"applyAge":18,"years":10,"idea":-1,"years936":20,"csex":1,"additionalShow":{"zhuyuanRJT":true,"zhuyuanYl":true,"yiwaiYl":true},"baoe":150000,"baoe1148":"1","baoe1146":120000,"baoe1120":150000,"callMethod":1}
+baotype=1118
+insuranceTypeId=190
+sex=1
 age=18
-years=5
-duration=10
-fenshu=2
-baoe=200000.00
-baofei=560.00
+isApply=false
+applySex=1
+applyAge=18
+years=10
 idea=-1
-cname
+years936=20
 csex=1
+additionalShow[zhuyuanRJT]=true
+additionalShow[zhuyuanYl]=true
+additionalShow[yiwaiYl]=true
+baoe=150000
+baoe1148=1
+baoe1146=120000
+baoe1120=150000
+callMethod=1
+
+
+{"data":{"outNum":{"1118":{"baoe":150000,"baof":3165,"code":"1118","name":"平安福","years":"10年交"},"1120":{"baoe":150000,"baof":1335,"code":"1120","name":"意外13"},"1146":{"baoe":120000,"baof":1392,"code":"1146","name":"重疾15"},"1148":{"baof":9.6432,"code":"1148","isCheck":true,"name":"豁免C加强"},"baofMainTotal":5901.6432,"baofei":5901.64},"retcode":0,"retdesc":"成功"},"success":true}
