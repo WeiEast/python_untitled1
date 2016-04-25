@@ -81,18 +81,20 @@ def getp(msex,mage,myears):
 #保险提交参数4个参数
 def getp4(msex,mage,myears,mduration):
     data = urllib.urlencode({
-        "jsonParameters":{"baotype":411,"insuranceTypeId":184,"sex":msex,"age":mage,"insurantMinAge_w":18,
-                          "insurantMaxAge_w":60,"isApply":"truee","applySex":1,"applyAge":18,"idea":-1,"csex":1,
-                          "additionalShow":{"yiwaiSh":"truee","yiwaiYl":"truee","zhuyuanFy":"truee","zhuyuanBt":"truee","zhongdaJb":"false"},
-                          "years":myears,"duration":mduration,"baoe411":10000,"callMethod":1},
-        "baotype":411,
-        "insuranceTypeId":184,
-        "insurantMinAge_w":18,
-        "insurantMaxAge_w":60,
-        "isApply":"true","applySe":1,"applyAge":18,"idea":-1,"csex":1,"additionalShow[yiwaiSh]":"true",
-        "additionalShow[yiwaiYl]":"true","additionalShow[zhuyuanFy]":"true","additionalShow[zhuyuanBt]":"true","additionalShow[zhongdaJb]":"false",
-        "sex":msex,"age":mage,"years":myears,"duration":mduration,
-        "baoe411":10000,"callMethod":1,
+        "jsonParameters":{"baotype":763,"insuranceTypeId":331,"sex":msex,"age":mage,"csex":1,"baoImgArr":["logo_wyrs.jpg"],
+                          "additionalShow":{"zhuyuanRe":"true","zhuyuanYl":"true"},"years":myears,"duration":mduration,"baof605":10000,"callMethod":1},
+        "baotype":763,
+        "insuranceTypeId":331,
+        "sex":msex,
+        "age":mage,
+        "csex":1,
+        "baoImgArr[]":"logo_wyrs.jpg",
+        "additionalShow[zhuyuanRe]":"true",
+        "additionalShow[zhuyuanYl]":"true",
+        "years":myears,
+        "duration":mduration,
+        "baof605":10000,
+        "callMethod":1,
     })
     return data
 
@@ -126,7 +128,7 @@ def getvalue():
                     mdict.append(mresult['data']['outNum']['490']['baoe'])
                     mdict.append(mresult['data']['outNum']['490']['baof'])
                     lists.append(mdict)
-                time.sleep(0.5)
+                time.sleep(0.3)
     excel.writevalue(lists)
     print len(lists)
     return
@@ -134,10 +136,10 @@ def getvalue():
 
 def getvalue4():
     pamasex = [1,2]
-    pamaminage = 18
-    pamaage = 61
+    pamaminage = 0
+    pamaage = 56
     pamayears = [5,10,20]
-    duration = [20,30,70,80]
+    duration = [60,65,70]
     lists = []
     for sex in pamasex:
         for years in pamayears:
@@ -148,9 +150,16 @@ def getvalue4():
                     print str1
                     mresult = json.loads(str1)
                     if str(mresult['data']['retcode']) == '0':
-                        obj = proplanbaen.ProplanBean(sex,i,years,mresult['data']['outNum']['411']['baoe'],mresult['data']['outNum']['411']['baof'],md)
-                        lists.append(obj)
-                    time.sleep(0.5)
+                        mdict = list()
+                        mdict.append(sex)
+                        mdict.append(i)
+                        mdict.append(years)
+                        mdict.append(md)
+                        mdict.append(mresult['data']['outNum']['605']['name'])
+                        mdict.append(mresult['data']['outNum']['605']['baoe'])
+                        mdict.append(mresult['data']['outNum']['605']['baof'])
+                        lists.append(mdict)
+                    time.sleep(0.3)
     excel.writevalue(lists)
     print len(lists)
     return
@@ -163,7 +172,7 @@ if __name__ == "__main__":
     opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookie))
     # 登录
     #login(opener)
-    getvalue()
+    getvalue4()
 
     cookie.save(ignore_discard=True, ignore_expires=True) #保存cookies
 
