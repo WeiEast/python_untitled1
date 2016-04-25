@@ -42,36 +42,25 @@ def getpama():
 #保险提交参数3个参数
 def getp(msex,mage,myears):
     data = urllib.urlencode({
-        "jsonParameters":{"baotype":490,"insuranceTypeId":201,"hasSocial":"true",
-                          "sex":msex,"age":mage,"isApply":"false","showApply":"true",
-                          "applySex":1,"applyAge":20,"idea":-1,"csex":1,"baoeToBaof":"false",
-                          "coverArr":["","","","通用","","",""],"cover":3,"takePopupArr":[],
-                          "takeBaof":"","endTakeYear":"","beginTakeYear":"","years":myears,"baof490":10000,"callMethod":1},
-        "baotype":490,
-        "insuranceTypeId":201,
-        "hasSocial":"true",
+        "jsonParameters":{"baotype":596,"insuranceTypeId":322,"sex":msex,"age":mage,"isApply":"false","applySex":1,"applyAge":18,"csex":1,
+                          "baoImgArr":["yiluyangguang.png"],"additionalShow":{"zhuyuanRe":"true","zhuyuanYl":"true"},
+                          "touHmCode":1147,"years":myears,"baoe596":200000,"baoe5961":200000,"baoe5962":200000,"callMethod":1},
+        "baotype":596,
+        "insuranceTypeId":322,
         "sex":msex,
         "age":mage,
         "isApply":"false",
-        "showApply":"true",
         "applySex":1,
-        "applyAg":20,
-        "idea":-1,
+        "applyAge":18,
         "csex":1,
-        "baoeToBaof":"false",
-        "coverArr[]":"",
-        "coverArr[]":"",
-        "coverArr[]":"",
-        "coverArr[]":"通用",
-        "coverArr[]":"",
-        "coverArr[]":"",
-        "coverArr[]":"",
-        "cover":3,
-        "takeBaof":"",
-        "endTakeYear":"",
-        "beginTakeYear":"",
+        "baoImgArr[]":"yiluyangguang.png",
+        "additionalShow[zhuyuanRe]":"true",
+        "additionalShow[zhuyuanYl]":"true",
+        "touHmCode":1147,
         "years":myears,
-        "baof490":10000,
+        "baoe596":200000,
+        "baoe5961":200000,
+        "baoe5962":200000,
         "callMethod":1,
     })
 
@@ -109,8 +98,8 @@ def postdata(opener,urlstr,pama,cookie):
 def getvalue():
     pamasex = [1,2]
     pamaminage = 0
-    pamaage = 58
-    pamayears = [3,5,10]
+    pamaage = 61
+    pamayears = [5,10,15,20,30]
     lists = []
     for sex in pamasex:
         for years in pamayears:
@@ -124,11 +113,17 @@ def getvalue():
                     mdict.append(sex)
                     mdict.append(i)
                     mdict.append(years)
-                    mdict.append(mresult['data']['outNum']['490']['name'])
-                    mdict.append(mresult['data']['outNum']['490']['baoe'])
-                    mdict.append(mresult['data']['outNum']['490']['baof'])
+                    mdict.append(mresult['data']['outNum']['596']['name'])
+                    mdict.append(mresult['data']['outNum']['596']['baoe'])
+                    mdict.append(mresult['data']['outNum']['596']['baof'])
+                    mdict.append(mresult['data']['outNum']['5961']['name'])
+                    mdict.append(mresult['data']['outNum']['5961']['baoe'])
+                    mdict.append(mresult['data']['outNum']['5961']['baof'])
+                    mdict.append(mresult['data']['outNum']['5962']['name'])
+                    mdict.append(mresult['data']['outNum']['5962']['baoe'])
+                    mdict.append(mresult['data']['outNum']['5962']['baof'])
                     lists.append(mdict)
-                time.sleep(0.3)
+                time.sleep(0.2)
     excel.writevalue(lists)
     print len(lists)
     return
@@ -172,7 +167,7 @@ if __name__ == "__main__":
     opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookie))
     # 登录
     #login(opener)
-    getvalue4()
+    getvalue()
 
     cookie.save(ignore_discard=True, ignore_expires=True) #保存cookies
 
