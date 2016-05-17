@@ -11,7 +11,7 @@ import time
 def getlogindata():
     postdata = urllib.urlencode({
             'mobile':'15583581921',
-            'validateCode':'1481'#验证码
+            'validateCode':'5425'#验证码
         })
     return postdata
 
@@ -42,26 +42,27 @@ def getpama():
 #保险提交参数3个参数
 def getp(msex,mage,myears):
     data = urllib.urlencode({
-        "jsonParameters":{"baotype":596,"insuranceTypeId":322,"sex":msex,"age":mage,"isApply":"false","applySex":1,"applyAge":18,"csex":1,
-                          "baoImgArr":["yiluyangguang.png"],"additionalShow":{"zhuyuanRe":"true","zhuyuanYl":"true"},
-                          "touHmCode":1147,"years":myears,"baoe596":200000,"baoe5961":200000,"baoe5962":200000,"callMethod":1},
-        "baotype":596,
-        "insuranceTypeId":322,
+        "jsonParameters":{"baotype":690,"insuranceTypeId":86,"sex":msex,"age":mage,"isApply":"false","applySex":1,"applyAge":18,
+                          "idea":-1,"csex":1,"additionalShow":{"yiwaiSh":"true","yiwaiYl":"true","zhuyuanFy":"true","zhuyuanBt":"true",
+                          "zhongdaJb":"true"},"years":myears,"baoe5075":10000,"baoe5076":10000,"callMethod":1},
+        "baotype":"690",
+        "insuranceTypeId":"86",
         "sex":msex,
         "age":mage,
         "isApply":"false",
-        "applySex":1,
-        "applyAge":18,
-        "csex":1,
-        "baoImgArr[]":"yiluyangguang.png",
-        "additionalShow[zhuyuanRe]":"true",
-        "additionalShow[zhuyuanYl]":"true",
-        "touHmCode":1147,
+        "applySex":"1",
+        "applyAge":"18",
+        "idea":"-1",
+        "csex":"1",
+        "additionalShow[yiwaiSh]":"true",
+        "additionalShow[yiwaiYl]":"true",
+        "additionalShow[zhuyuanFy]":"true",
+        "additionalShow[zhuyuanBt]":"true",
+        "additionalShow[zhongdaJb]":"true",
         "years":myears,
-        "baoe596":200000,
-        "baoe5961":200000,
-        "baoe5962":200000,
-        "callMethod":1,
+        "baoe5075":"10000",
+        "baoe5076":"10000",
+        "callMethod":"1",
     })
 
     return data
@@ -98,8 +99,8 @@ def postdata(opener,urlstr,pama,cookie):
 def getvalue():
     pamasex = [1,2]
     pamaminage = 0
-    pamaage = 61
-    pamayears = [5,10,15,20,30]
+    pamaage = 56
+    pamayears = [1,3,5,10,15,20,30]
     lists = []
     for sex in pamasex:
         for years in pamayears:
@@ -113,15 +114,15 @@ def getvalue():
                     mdict.append(sex)
                     mdict.append(i)
                     mdict.append(years)
-                    mdict.append(mresult['data']['outNum']['596']['name'])
-                    mdict.append(mresult['data']['outNum']['596']['baoe'])
-                    mdict.append(mresult['data']['outNum']['596']['baof'])
-                    mdict.append(mresult['data']['outNum']['5961']['name'])
-                    mdict.append(mresult['data']['outNum']['5961']['baoe'])
-                    mdict.append(mresult['data']['outNum']['5961']['baof'])
-                    mdict.append(mresult['data']['outNum']['5962']['name'])
-                    mdict.append(mresult['data']['outNum']['5962']['baoe'])
-                    mdict.append(mresult['data']['outNum']['5962']['baof'])
+                    mdict.append(mresult['data']['outNum']['5075']['name'])
+                    mdict.append(mresult['data']['outNum']['5075']['baoe'])
+                    mdict.append(mresult['data']['outNum']['5075']['baof'])
+                    mdict.append(mresult['data']['outNum']['5075']['jiaofei'])
+                    mdict.append(mresult['data']['outNum']['5076']['name'])
+                    mdict.append(mresult['data']['outNum']['5076']['baoe'])
+                    mdict.append(mresult['data']['outNum']['5076']['baof'])
+                    mdict.append(mresult['data']['outNum']['5076']['jiaofei'])
+                    mdict.append(mresult['data']['outNum']['baofMainTotal'])
                     lists.append(mdict)
                 time.sleep(0.2)
     excel.writevalue(lists)
