@@ -71,19 +71,21 @@ def getp(msex,mage,myears):
 #保险提交参数4个参数
 def getp4(msex,mage,myears,mduration):
     data = urllib.urlencode({
-        "jsonParameters":{"baotype":763,"insuranceTypeId":331,"sex":msex,"age":mage,"csex":1,"baoImgArr":["logo_wyrs.jpg"],
-                          "additionalShow":{"zhuyuanRe":"true","zhuyuanYl":"true"},"years":myears,"duration":mduration,"baof605":10000,"callMethod":1},
+        "jsonParameters":{"baotype":763,"insuranceTypeId":333,"sex":msex,"age":mage,"csex":1,"baoImgArr":["logo_zyrs.jpg"],
+                          "additionalShow":{"zhuyuanRe":"true","zhuyuanYl":"true"},"duration":mduration,"years":myears,"baoe608":10000,
+                          "baofei":"","callMethod":1},
         "baotype":763,
-        "insuranceTypeId":331,
+        "insuranceTypeId":333,
         "sex":msex,
         "age":mage,
         "csex":1,
-        "baoImgArr[]":"logo_wyrs.jpg",
+        "baoImgArr[]":"logo_zyrs.jpg",
         "additionalShow[zhuyuanRe]":"true",
         "additionalShow[zhuyuanYl]":"true",
-        "years":myears,
         "duration":mduration,
-        "baof605":10000,
+        "years":myears,
+        "baoe608":10000,
+        "baofei":"",
         "callMethod":1,
     })
     return data
@@ -133,9 +135,9 @@ def getvalue():
 def getvalue4():
     pamasex = [1,2]
     pamaminage = 0
-    pamaage = 56
-    pamayears = [5,10,20]
-    duration = [60,65,70]
+    pamaage = 66
+    pamayears = [1,3,5,10,20]
+    duration = [55,60,65,70]
     lists = []
     for sex in pamasex:
         for years in pamayears:
@@ -151,11 +153,15 @@ def getvalue4():
                         mdict.append(i)
                         mdict.append(years)
                         mdict.append(md)
-                        mdict.append(mresult['data']['outNum']['605']['name'])
-                        mdict.append(mresult['data']['outNum']['605']['baoe'])
-                        mdict.append(mresult['data']['outNum']['605']['baof'])
+                        mdict.append(mresult['data']['outNum']['608']['name'])
+                        mdict.append(mresult['data']['outNum']['608']['baoe'])
+                        mdict.append(mresult['data']['outNum']['608']['baof'])
+                        mdict.append(mresult['data']['outNum']['608']['duration'])
+                        mdict.append(mresult['data']['outNum']['608']['jiaofei'])
                         lists.append(mdict)
-                    time.sleep(0.3)
+                    time.sleep(0.2)
+                #time.sleep(2)
+        #time.sleep(2)
     excel.writevalue(lists)
     print len(lists)
     return
@@ -168,7 +174,7 @@ if __name__ == "__main__":
     opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookie))
     # 登录
     #login(opener)
-    getvalue()
+    getvalue4()
 
     cookie.save(ignore_discard=True, ignore_expires=True) #保存cookies
 
